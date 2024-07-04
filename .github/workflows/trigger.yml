@@ -1,0 +1,27 @@
+name: Trigger dispatch
+
+on:
+  push:
+    branches-ignore:
+      - main
+      - release
+  pull_request:
+    types: [opened, closed, synchronize]
+    branches-ignore:
+      - versioning
+  delete:
+    branches:
+      - '*'
+  gollum:
+
+concurrency:
+  group: ${{ github.head_ref || github.ref_name }}
+
+jobs:
+  Print_trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - run: "echo ${{ github.event_name }}"
+      
+  # Trigger_Dispatch:
+  #   if: (github.event_name == 'gollum')
