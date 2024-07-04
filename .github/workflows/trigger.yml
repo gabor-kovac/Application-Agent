@@ -21,7 +21,12 @@ jobs:
   Print_trigger:
     runs-on: ubuntu-latest
     steps:
-      - run: "echo ${{ github.event_name }}"
+      - run: echo "Trigger was ${{ github.event_name }}"
       
-  # Trigger_Dispatch:
-  #   if: (github.event_name == 'gollum')
+  Trigger_Dispatch:
+    needs: Print_trigger
+    if: (github.event_name != 'gollum')
+    uses: gabor-kovac/workflow/.github/workflows/dispatch.yml@main
+    with:
+      trigger: ${{ github.event_name }}
+    secrets: inherit
