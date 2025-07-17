@@ -1,6 +1,6 @@
 {
   "name": "Application-Agent",
-  "version": "0.1.8",
+  "version": "1.1.8",
   "author": "gabor-kovac",
   "license": "MIT",
   "main": "./dist/index.js",
