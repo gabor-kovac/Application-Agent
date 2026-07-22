@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   Print_trigger:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - run: echo "Trigger was ${{ github.event_name }}"
       
