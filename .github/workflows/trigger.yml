@@ -19,7 +19,6 @@ concurrency:
 
 jobs:
   Trigger_Dispatch:
-    needs: Print_trigger
     uses: gabor-kovac/workflow/.github/workflows/dispatch.yml@main
     with:
       trigger: ${{ github.event_name }}
