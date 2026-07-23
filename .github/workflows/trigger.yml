@@ -18,11 +18,6 @@ concurrency:
   group: ${{ github.head_ref || github.ref_name }}
 
 jobs:
-  Print_trigger:
-    runs-on: ubuntu-24.04
-    steps:
-      - run: echo "Trigger was ${{ github.event_name }}"
-      
   Trigger_Dispatch:
     needs: Print_trigger
     uses: gabor-kovac/workflow/.github/workflows/dispatch.yml@main
